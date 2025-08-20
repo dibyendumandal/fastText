@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Introduction": ["support", "cheatsheet", "options"],
+    "Introduction": ["support", "architecture", "cheatsheet", "options"],
     "Tutorials": ["supervised-tutorial", "unsupervised-tutorial"],
     "Help": ["autotune", "python-module", "webassembly-module", "faqs", "api", "references"]
   },

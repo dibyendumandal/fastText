@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; text-anchor: middle; }
+      .section-title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .component { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .interface-box { fill: #e1f5fe; stroke: #0277bd; stroke-width: 2; }
+      .core-box { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; }
+      .specialized-box { fill: #e8f5e8; stroke: #2e7d32; stroke-width: 2; }
+      .build-box { fill: #fff3e0; stroke: #ef6c00; stroke-width: 2; }
+      .arrow { stroke: #424242; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#424242" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title">fastText Library Architecture</text>
+  
+  <!-- Interface Layer -->
+  <rect x="50" y="60" width="1100" height="120" class="interface-box" rx="5"/>
+  <text x="600" y="80" class="section-title">INTERFACES</text>
+  
+  <rect x="70" y="100" width="200" height="60" class="interface-box" rx="3"/>
+  <text x="170" y="120" class="component">Command Line</text>
+  <text x="170" y="135" class="small-text">./fasttext skipgram</text>
+  <text x="170" y="150" class="small-text">./fasttext supervised</text>
+  
+  <rect x="290" y="100" width="200" height="60" class="interface-box" rx="3"/>
+  <text x="390" y="120" class="component">Python Module</text>
+  <text x="390" y="135" class="small-text">import fasttext</text>
+  <text x="390" y="150" class="small-text">train_* / predict</text>
+  
+  <rect x="510" y="100" width="200" height="60" class="interface-box" rx="3"/>
+  <text x="610" y="120" class="component">WebAssembly</text>
+  <text x="610" y="135" class="small-text">FastTextModule</text>
+  <text x="610" y="150" class="small-text">Browser/Node.js</text>
+  
+  <rect x="730" y="100" width="200" height="60" class="interface-box" rx="3"/>
+  <text x="830" y="120" class="component">C++ Library API</text>
+  <text x="830" y="135" class="small-text">#include "fasttext.h"</text>
+  <text x="830" y="150" class="small-text">Direct Access</text>
+  
+  <!-- Arrow from interfaces to core -->
+  <line x1="600" y1="180" x2="600" y2="210" class="arrow"/>
+  
+  <!-- Core C++ Library -->
+  <rect x="50" y="220" width="1100" height="320" class="core-box" rx="5"/>
+  <text x="600" y="240" class="section-title">CORE C++ LIBRARY</text>
+  
+  <!-- Top row of core components -->
+  <rect x="80" y="260" width="150" height="80" class="core-box" rx="3"/>
+  <text x="155" y="285" class="component">FastText</text>
+  <text x="155" y="300" class="small-text">• Main API</text>
+  <text x="155" y="315" class="small-text">• Model loading</text>
+  <text x="155" y="330" class="small-text">• Training</text>
+  
+  <rect x="250" y="260" width="150" height="80" class="core-box" rx="3"/>
+  <text x="325" y="285" class="component">AutoTune</text>
+  <text x="325" y="300" class="small-text">• Hyperparameter</text>
+  <text x="325" y="315" class="small-text">• Optimization</text>
+  <text x="325" y="330" class="small-text">• Grid search</text>
+  
+  <rect x="420" y="260" width="150" height="80" class="core-box" rx="3"/>
+  <text x="495" y="285" class="component">Model</text>
+  <text x="495" y="300" class="small-text">• Neural network</text>
+  <text x="495" y="315" class="small-text">• Forward/backward</text>
+  <text x="495" y="330" class="small-text">• State mgmt</text>
+  
+  <rect x="590" y="260" width="150" height="80" class="core-box" rx="3"/>
+  <text x="665" y="285" class="component">Dictionary</text>
+  <text x="665" y="300" class="small-text">• Vocabulary</text>
+  <text x="665" y="315" class="small-text">• Subword info</text>
+  <text x="665" y="330" class="small-text">• N-grams</text>
+  
+  <rect x="760" y="260" width="150" height="80" class="core-box" rx="3"/>
+  <text x="835" y="285" class="component">Args</text>
+  <text x="835" y="300" class="small-text">• Configuration</text>
+  <text x="835" y="315" class="small-text">• Parameters</text>
+  <text x="835" y="330" class="small-text">• Validation</text>
+  
+  <rect x="930" y="260" width="150" height="80" class="core-box" rx="3"/>
+  <text x="1005" y="285" class="component">Meter</text>
+  <text x="1005" y="300" class="small-text">• Progress</text>
+  <text x="1005" y="315" class="small-text">• tracking</text>
+  <text x="1005" y="330" class="small-text">• Metrics</text>
+  
+  <!-- Middle row of core components -->
+  <rect x="80" y="360" width="150" height="80" class="core-box" rx="3"/>
+  <text x="155" y="385" class="component">Loss</text>
+  <text x="155" y="400" class="small-text">• Softmax</text>
+  <text x="155" y="415" class="small-text">• Hierarchical</text>
+  <text x="155" y="430" class="small-text">• Neg. sampling</text>
+  
+  <rect x="250" y="360" width="150" height="80" class="core-box" rx="3"/>
+  <text x="325" y="385" class="component">Matrix</text>
+  <text x="325" y="400" class="small-text">• DenseMatrix</text>
+  <text x="325" y="415" class="small-text">• QuantMatrix</text>
+  <text x="325" y="430" class="small-text">• Operations</text>
+  
+  <rect x="420" y="360" width="150" height="80" class="core-box" rx="3"/>
+  <text x="495" y="385" class="component">Vector</text>
+  <text x="495" y="400" class="small-text">• Operations</text>
+  <text x="495" y="415" class="small-text">• Utilities</text>
+  
+  <rect x="590" y="360" width="150" height="80" class="core-box" rx="3"/>
+  <text x="665" y="385" class="component">ProductQuantizer</text>
+  <text x="665" y="400" class="small-text">• Compression</text>
+  <text x="665" y="415" class="small-text">• Quantization</text>
+  <text x="665" y="430" class="small-text">• Size reduction</text>
+  
+  <rect x="760" y="360" width="150" height="80" class="core-box" rx="3"/>
+  <text x="835" y="385" class="component">Utils</text>
+  <text x="835" y="400" class="small-text">• File I/O</text>
+  <text x="835" y="415" class="small-text">• Math utils</text>
+  <text x="835" y="430" class="small-text">• Threading</text>
+  
+  <rect x="930" y="360" width="150" height="80" class="core-box" rx="3"/>
+  <text x="1005" y="385" class="component">Real/Types</text>
+  <text x="1005" y="400" class="small-text">• Type aliases</text>
+  <text x="1005" y="415" class="small-text">• Constants</text>
+  
+  <!-- Data flow arrows within core -->
+  <line x1="155" y1="340" x2="495" y2="360" class="arrow" stroke-width="1"/>
+  <line x1="495" y1="340" x2="325" y2="360" class="arrow" stroke-width="1"/>
+  <line x1="665" y1="340" x2="325" y2="360" class="arrow" stroke-width="1"/>
+  
+  <!-- Arrow from core to specialized -->
+  <line x1="600" y1="550" x2="600" y2="580" class="arrow"/>
+  
+  <!-- Specialized Components -->
+  <rect x="50" y="590" width="1100" height="120" class="specialized-box" rx="5"/>
+  <text x="600" y="610" class="section-title">SPECIALIZED COMPONENTS</text>
+  
+  <rect x="150" y="630" width="200" height="60" class="specialized-box" rx="3"/>
+  <text x="250" y="650" class="component">Cross-lingual Alignment</text>
+  <text x="250" y="665" class="small-text">• Supervised/Unsupervised</text>
+  <text x="250" y="680" class="small-text">• Multi-language</text>
+  
+  <rect x="400" y="630" width="200" height="60" class="specialized-box" rx="3"/>
+  <text x="500" y="650" class="component">WebAssembly Build</text>
+  <text x="500" y="665" class="small-text">• Emscripten</text>
+  <text x="500" y="680" class="small-text">• Browser compatible</text>
+  
+  <rect x="650" y="630" width="200" height="60" class="specialized-box" rx="3"/>
+  <text x="750" y="650" class="component">Documentation</text>
+  <text x="750" y="665" class="small-text">• Docusaurus website</text>
+  <text x="750" y="680" class="small-text">• Tutorials & API docs</text>
+  
+  <!-- Arrow from specialized to build -->
+  <line x1="600" y1="720" x2="600" y2="750" class="arrow"/>
+  
+  <!-- Build Systems -->
+  <rect x="50" y="760" width="1100" height="80" class="build-box" rx="5"/>
+  <text x="600" y="780" class="section-title">BUILD SYSTEMS</text>
+  
+  <rect x="200" y="800" width="180" height="40" class="build-box" rx="3"/>
+  <text x="290" y="815" class="component">Makefile</text>
+  <text x="290" y="830" class="small-text">Native build</text>
+  
+  <rect x="410" y="800" width="180" height="40" class="build-box" rx="3"/>
+  <text x="500" y="815" class="component">CMakeLists</text>
+  <text x="500" y="830" class="small-text">Cross-platform</text>
+  
+  <rect x="620" y="800" width="180" height="40" class="build-box" rx="3"/>
+  <text x="710" y="815" class="component">Python Setup</text>
+  <text x="710" y="830" class="small-text">pip install</text>
+  
+</svg>

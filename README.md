@@ -10,6 +10,7 @@
    * [Supplementary data](#supplementary-data)
    * [FAQ](#faq)
    * [Cheatsheet](#cheatsheet)
+* [Architecture](#architecture)
 * [Requirements](#requirements)
 * [Building fastText](#building-fasttext)
    * [Getting the source code](#getting-the-source-code)
@@ -45,6 +46,14 @@ You can find [answers to frequently asked questions](https://fasttext.cc/docs/en
 ### Cheatsheet
 
 We also provide a [cheatsheet](https://fasttext.cc/docs/en/cheatsheet.html#content) full of useful one-liners.
+
+## Architecture
+
+For a comprehensive overview of the fastText library architecture, including component relationships and data flow, see our [Architecture Documentation](docs/architecture.md).
+
+![fastText Architecture](docs/architecture-diagram.svg)
+
+The library is built with a modular C++ core, multiple language bindings (Python, WebAssembly), and specialized components for cross-lingual applications.
 
 ## Requirements
 
